@@ -66,14 +66,14 @@ function displayResultItem(url) {
 function addCopyAllButton(urlArray) {
     const resultContainer = document.getElementById('resultContainer');
     const copyAllBtn = document.createElement('button');
-    copyAllBtn.textContent = 'Copy All for Google Sheets';
+    copyAllBtn.textContent = 'Copy All';
     copyAllBtn.id = 'copyAllBtn';
     copyAllBtn.onclick = () => {
         // Join with a newline character for easy pasting into spreadsheet columns
         const textToCopy = urlArray.join('\n');
         navigator.clipboard.writeText(textToCopy).then(() => {
             copyAllBtn.textContent = 'Copied All!';
-            setTimeout(() => { copyAllBtn.textContent = 'Copy All for Google Sheets'; }, 2000);
+            setTimeout(() => { copyAllBtn.textContent = 'Copy All'; }, 2000);
         });
     };
     resultContainer.appendChild(copyAllBtn);
