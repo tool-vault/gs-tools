@@ -1,3 +1,8 @@
+/* Universal box-sizing rule for better layout control */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #f4f4f9;
@@ -12,11 +17,12 @@ body {
 
 .container {
     background-color: #ffffff;
-    padding: 30px;
+    padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 600px;
+    /* Increased max-width for a bigger toolbox */
+    max-width: 700px;
     text-align: center;
 }
 
@@ -32,7 +38,8 @@ p {
 
 textarea {
     width: 100%;
-    height: 150px;
+    /* Increased height for a larger input area */
+    height: 200px;
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -61,12 +68,23 @@ button:hover {
     text-align: left;
 }
 
+/* Styling for the new "Copy All" button */
+#copyAllBtn {
+    width: 100%;
+    background-color: #1abc9c;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+#copyAllBtn:hover {
+    background-color: #16a085;
+}
+
 .result-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #ecf0f1;
-    padding: 10px 15px;
+    padding: 12px 15px;
     border-radius: 5px;
     margin-bottom: 10px;
     word-break: break-all;
