@@ -21,7 +21,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-    /* Increased max-width for a bigger toolbox */
     max-width: 700px;
     text-align: center;
 }
@@ -38,7 +37,6 @@ p {
 
 textarea {
     width: 100%;
-    /* Increased height for a larger input area */
     height: 200px;
     padding: 15px;
     border: 1px solid #ddd;
@@ -48,20 +46,40 @@ textarea {
     resize: vertical;
 }
 
-button {
-    background-color: #3498db;
-    color: white;
+/* Button group container */
+.button-group {
+    display: flex;
+    gap: 15px; /* Adds space between buttons */
+}
+
+/* Shared style for buttons in the group */
+.button-group button {
+    flex-grow: 1; /* Makes buttons share space equally */
+    padding: 15px 20px;
     border: none;
-    padding: 15px 30px;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+#processBtn {
+    background-color: #3498db;
+    color: white;
+}
+#processBtn:hover {
     background-color: #2980b9;
 }
+
+/* Style for the new Clear All button */
+#clearBtn {
+    background-color: #95a5a6;
+    color: white;
+}
+#clearBtn:hover {
+    background-color: #7f8c8d;
+}
+
 
 #resultContainer {
     margin-top: 25px;
@@ -74,6 +92,13 @@ button:hover {
     background-color: #1abc9c;
     margin-bottom: 20px;
     font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+    border: none;
 }
 #copyAllBtn:hover {
     background-color: #16a085;
