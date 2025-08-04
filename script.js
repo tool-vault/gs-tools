@@ -1,6 +1,6 @@
 document.getElementById('processBtn').addEventListener('click', () => {
-    const urlInput = document.getElementById('urlInput').value.trim();
-    const urls = urlInput.split('\n').filter(url => url.trim() !== '');
+    const urlInput = document.getElementById('urlInput');
+    const urls = urlInput.value.trim().split('\n').filter(url => url.trim() !== '');
     const resultContainer = document.getElementById('resultContainer');
     resultContainer.innerHTML = ''; // Clear previous results
 
@@ -30,6 +30,13 @@ document.getElementById('processBtn').addEventListener('click', () => {
         cleanedUrls.forEach(url => displayResultItem(url));
     }
 });
+
+// Event listener for the new Clear All button
+document.getElementById('clearBtn').addEventListener('click', () => {
+    document.getElementById('urlInput').value = '';
+    document.getElementById('resultContainer').innerHTML = '';
+});
+
 
 /**
  * Creates and displays a single result item with a URL and a copy button.
@@ -66,14 +73,14 @@ function displayResultItem(url) {
 function addCopyAllButton(urlArray) {
     const resultContainer = document.getElementById('resultContainer');
     const copyAllBtn = document.createElement('button');
-    copyAllBtn.textContent = 'Copy All';
+    copyAllBtn.textContent = 'Copy All for Sheets';
     copyAllBtn.id = 'copyAllBtn';
     copyAllBtn.onclick = () => {
         // Join with a newline character for easy pasting into spreadsheet columns
         const textToCopy = urlArray.join('\n');
         navigator.clipboard.writeText(textToCopy).then(() => {
             copyAllBtn.textContent = 'Copied All!';
-            setTimeout(() => { copyAllBtn.textContent = 'Copy All'; }, 2000);
+            setTimeout(() => { copyAllBtn.textContent = 'Copy All for Sheets'; }, 2000);
         });
     };
     resultContainer.appendChild(copyAllBtn);
